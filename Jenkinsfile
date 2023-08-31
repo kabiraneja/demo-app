@@ -16,17 +16,17 @@ pipeline {
             }
         }
 
-        // stage('Deploy to Docker') {
-        //     steps {
-        //         // Copy the built .jar file to the EC2 instance
-        //         sh 'scp target/your-app.jar ec2-user@<EC2_IP>:~/'
+        stage('Deploy to Docker') {
+            steps {
+                // Copy the built .jar file to the EC2 instance
+                sh 'scp target/demo-1-0.0.1-SNAPSHOT.jar ec2-user@13.127.255.192:~/'
 
-        //         // SSH into the EC2 instance and deploy the .jar in Docker
-        //         sh "ssh ec2-user@<EC2_IP> 'docker stop your-app-container || true'"
-        //         sh "ssh ec2-user@<EC2_IP> 'docker rm your-app-container || true'"
-        //         sh "ssh ec2-user@<EC2_IP> 'docker build -t your-app .'"
-        //         sh "ssh ec2-user@<EC2_IP> 'docker run -d -p 8080:8080 --name your-app-container your-app'"
-        //     }
-        // }
+                // SSH into the EC2 instance and deploy the .jar in Docker
+                sh "ssh ec2-user@13.127.255.192 'docker stop demo-1 || true'"
+                sh "ssh ec2-user@13.127.255.192 'docker rm demo-1 || true'"
+                sh "ssh ec2-user@13.127.255.192 'docker build -t demo-1-0.0.1-SNAPSHOT .'"
+                sh "ssh ec2-user@13.127.255.192 'docker run -d -p 9090:9090 --name demo-1 demo-1-0.0.1-SNAPSHOT'"
+            }
+        }
     }
 }
