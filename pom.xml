@@ -44,7 +44,7 @@
           <manifest>
             <addClasspath>true</addClasspath>
             <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>com.practice.demo1.Controller.Controller</mainClass>
+            <mainClass>com.practice.demo1.Demo1Application</mainClass>
           </manifest>
         </archive>
       </configuration>
