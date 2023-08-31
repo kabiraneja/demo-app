@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy to Docker') {
             steps {
                 // Copy the built .jar file to the EC2 instance
-                sh ' scp -i id_rsa /var/jenkins_home/workspace/spring-mvn-pipeline/target/demo-1-0.0.1-SNAPSHOT.jar root@13.127.255.192:~/
+                sh ' scp -i id_rsa /var/jenkins_home/workspace/spring-mvn-pipeline/target/demo-1-0.0.1-SNAPSHOT.jar root@13.127.255.192:~/'
 '
 
                 // SSH into the EC2 instance and deploy the .jar in Docker
