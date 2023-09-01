@@ -19,14 +19,14 @@ pipeline {
         stage('Deploy to Docker') {
             steps {
                 // Copy the built .jar file to the EC2 instance
-                sh ' scp -i id_rsa /var/jenkins_home/workspace/spring-mvn-pipeline/target/demo-1-build.jar root@13.233.34.129:~/'
-                sh ' scp -i id_rsa /var/jenkins_home/workspace/spring-mvn-pipeline/Dockerfile root@13.233.34.129:~/'
+                sh ' scp -i id_rsa /var/jenkins_home/workspace/spring-mvn-pipeline/target/demo-1-build.jar root@3.110.44.28:~/'
+                sh ' scp -i id_rsa /var/jenkins_home/workspace/spring-mvn-pipeline/Dockerfile root@3.110.44.28:~/'
                 
                 // SSH into the EC2 instance and deploy the .jar in Docker
-                sh "ssh root@13.233.34.129 'docker stop demo-1 || true'"
-                sh "ssh root@13.233.34.129 'docker rm demo-1 || true'"
-                sh "ssh root@13.233.34.129 'docker build -t demo-1-build .'"
-                sh "ssh root@13.233.34.129 'docker run -it -d -p 9090:9090 --name demo-1 demo-1-build'"
+                sh "ssh root@3.110.44.28 'docker stop demo-1 || true'"
+                sh "ssh root@3.110.44.28 'docker rm demo-1 || true'"
+                sh "ssh root@3.110.44.28 'docker build -t demo-1-build .'"
+                sh "ssh root@3.110.44.28 'docker run -it -d -p 9090:9090 --name demo-1 demo-1-build'"
             }
         }
     }
