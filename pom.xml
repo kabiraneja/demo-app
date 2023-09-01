@@ -17,8 +17,6 @@
         	<maven.compiler.source>11</maven.compiler.source>
         	<maven.compiler.target>11</maven.compiler.target>
 		<java.version>11</java.version>
-		<start-class>com.bt.collab.alu.api.webapp.Application</start-class>
-
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,21 +34,6 @@
 	<build>
 		<finalName>demo-1-build</finalName>
 <plugins>
-	<plugin>
-      <!-- Build an executable JAR -->
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.1.0</version>
-      <configuration>
-        <archive>
-          <manifest>
-            <addClasspath>true</addClasspath>
-            <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>com.practice.demo1.Demo1Application</mainClass>
-          </manifest>
-        </archive>
-      </configuration>
-    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
