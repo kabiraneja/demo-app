@@ -25,6 +25,7 @@ pipeline {
                 // SSH into the EC2 instance and deploy the .jar in Docker
                 sh "ssh root@43.204.145.193 'docker stop demo-2 || true'"
                 sh "ssh root@43.204.145.193 'docker rm demo-2 || true'"
+                sh "ssh root@43.204.145.193 'docker rmi demo-2 || true'"
                 sh "ssh root@43.204.145.193 'docker build -t demo-2 .'"
                 sh "ssh root@43.204.145.193 'docker run -it -d -p 9091:9091 --name demo-2 demo-2'"
             }
