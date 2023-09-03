@@ -26,7 +26,7 @@ pipeline {
                 sh "ssh root@43.204.145.193 'docker stop demo-2 || true'"
                 sh "ssh root@43.204.145.193 'docker rm demo-2 || true'"
                 sh "ssh root@43.204.145.193 'docker build -t demo-2 .'"
-                sh "ssh root@43.204.145.193 'docker run -it -d -p 9090:9090 --name demo-2 demo-2'"
+                sh "ssh root@43.204.145.193 'docker run -it -d -p 9091:9091 --name demo-2 demo-2'"
             }
         }
     }
