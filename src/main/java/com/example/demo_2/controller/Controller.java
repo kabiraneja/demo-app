@@ -25,8 +25,20 @@ public class Controller {
     @GetMapping("/getFruits")
     public String getFruits() {
 
-        String url = "http://3.110.134.49:9090/getFruits";
+        String url = "http://3.111.51.62:9090/getFruits";
         return restTemplate.getForObject(url, String.class);
+
+    }
+
+    @GetMapping("/getEmployees")
+    public List getEmployees() {
+
+        List emp = new ArrayList();
+        emp.add("Piyush");
+        emp.add("Mayank");
+        emp.add("Rahul");
+
+        return emp;
 
     }
 }
