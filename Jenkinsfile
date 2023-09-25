@@ -11,8 +11,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Build the Spring Boot application using Maven
-                sh 'mvn clean package -DskipTests'
+                git url: 'https://github.com/kabiranrja/demo-app.git'
+                withMaven {
+                sh 'mvn clean package -DskipTests'                
+                }
             }
         }
 
