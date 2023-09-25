@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                git url: 'https://github.com/kabiranrja/demo-app.git'
+                git url: 'https://github.com/kabiraneja/demo-app.git'
                 withMaven {
                 sh 'mvn clean package -DskipTests'                
                 }
