@@ -29,7 +29,7 @@ pipeline {
                     unstash 'Dockerfile'
 
                 // Define the destination path on the host for the .jar file
-                    def jarDestinationPath = '~/myapp.jar'
+                    def jarDestinationPath = '~/demo-2.jar'
 
                 // Define the destination path on the host for the Dockerfile
                     def dockerfileDestinationPath = '~/Dockerfile'
