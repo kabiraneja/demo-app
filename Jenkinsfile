@@ -17,8 +17,8 @@ pipeline {
         stage('Deploy to Docker') {
             steps {
                 // Copy the built .jar file to the EC2 instance
-                sh ' scp -i id_rsa /var/jenkins_home/workspace/my-pipeline/target/demo-2.jar root@13.235.103.196:~/'
-                sh ' scp -i id_rsa /var/jenkins_home/workspace/my-pipeline/Dockerfile root@13.235.103.196:~/'
+                sh ' scp -i /var/jenkins_home/.ssh/id_rsa /var/jenkins_home/workspace/my-pipeline/target/demo-2.jar root@13.235.103.196:~/'
+                sh ' scp -i /var/jenkins_home/.ssh/id_rsa /var/jenkins_home/workspace/my-pipeline/Dockerfile root@13.235.103.196:~/'
                 
                 // SSH into the EC2 instance and deploy the .jar in Docker
                 sh "ssh root@13.235.103.196 'docker stop demo-2 || true'"
