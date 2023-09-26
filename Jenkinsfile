@@ -29,10 +29,10 @@ pipeline {
                     unstash 'Dockerfile'
 
                 // Define the destination path on the host for the .jar file
-                    def jarDestinationPath = '~/demo-2.jar'
+                    // def jarDestinationPath = '~/demo-2.jar'
 
                 // Define the destination path on the host for the Dockerfile
-                    def dockerfileDestinationPath = '~/Dockerfile'
+                    // def dockerfileDestinationPath = '~/Dockerfile'
                 
                 // Copy the built .jar file to the EC2 instance
                 // sh ' scp -i /var/jenkins_home/.ssh/id_rsa /var/jenkins_home/workspace/my-pipeline/target/demo-2.jar root@13.235.103.196:~/'
@@ -41,8 +41,8 @@ pipeline {
                 // sh 'docker cp jenkins:/var/jenkins_home/workspace/my-pipeline/target/demo-2.jar ~/ '
                 // sh 'docker cp jenkins:/var/jenkins_home/workspace/my-pipeline/Dockerfile ~/ '
 
-                 sh "cp -r /var/jenkins_home/workspace/my-pipeline/target/demo-2.jar ${jarDestinationPath}"
-                 sh "cp -r /var/jenkins_home/workspace/my-pipeline/Dockerfile ${dockerfileDestinationPath}"
+                 sh "cp -r /var/jenkins_home/workspace/my-pipeline/target/demo-2.jar ~/demo-2.jar"
+                 sh "cp -r /var/jenkins_home/workspace/my-pipeline/Dockerfile ~/Dockerfile"
                 
                 // SSH into the EC2 instance and deploy the .jar in Docker
                 sh "ssh root@13.235.103.196 'docker stop demo-2 || true'"
